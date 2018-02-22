@@ -1,5 +1,4 @@
-package TP2.Java;
-
+package App;
 
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 

@@ -5,12 +5,12 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
   version="3.0">
 	<servlet>
-		<servlet-name>Test</servlet-name>
-		<servlet-class>TP2.Java.TestServlet</servlet-class>
+		<servlet-name>HomeControler</servlet-name>
+		<servlet-class>Controler.HomeControler</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>Test</servlet-name>
-		<url-pattern>/Index</url-pattern>
+		<servlet-name>HomeControler</servlet-name>
+		<url-pattern>/Home</url-pattern>
 	</servlet-mapping>
 </web-app>

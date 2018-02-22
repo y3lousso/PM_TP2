@@ -1,4 +1,4 @@
-package TP2.Java;
+package View;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -8,6 +8,9 @@ import java.awt.event.WindowEvent;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import javax.swing.JToolBar;
+
+import Model.Compte;
+
 import javax.swing.Box;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;

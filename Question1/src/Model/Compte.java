@@ -1,4 +1,4 @@
-package TP2.Java;
+package Model;
 
 public interface Compte {
 	

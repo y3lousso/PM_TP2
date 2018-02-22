@@ -1,16 +1,17 @@
-package TP2.Java;
+package App;
 
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-public class Application {
+public class ApplicationRMI {
 
 	/**
 	 * @param args
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
+		// static Logger log = Logger.getLogger(MyClass.class);
 		// TODO Auto-generated method stub
-		new FileSystemXmlApplicationContext( "src/ViaRMI.xml" );
+		new FileSystemXmlApplicationContext( "src/ServeurRMI.xml" );
 
 	}
 
