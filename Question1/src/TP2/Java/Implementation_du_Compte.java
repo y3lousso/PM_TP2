@@ -1,4 +1,4 @@
-package com.arnaud.zinflou.test.spring;
+package TP2.Java;
 
 public class Implementation_du_Compte implements Compte {
 	

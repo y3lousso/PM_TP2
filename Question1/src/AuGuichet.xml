@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="compt007" class="TP2.Java.Implementation_du_Compte">
+	<constructor-arg><value>007</value></constructor-arg>
+	<constructor-arg><value>Xiao Zhi</value></constructor-arg>
+	<constructor-arg><value>(418)545-5011</value></constructor-arg>
+	<constructor-arg><value>au guichet</value></constructor-arg>
+	</bean>
+	<bean id="Guichet" class="TP2.Java.Guichet_Auto"> <constructor-arg ref="compt007"></constructor-arg></bean>
+
+
+</beans>

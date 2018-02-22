@@ -5,8 +5,8 @@
 *.class
 
 # eclipse specific git ignore
-bin/
-target/
+*/bin/
+*/target/
 tmp/**
 tmp/**/*
 

@@ -1,4 +1,5 @@
-package com.arnaud.zinflou.test.spring;
+package TP2.Java;
+
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class Application {

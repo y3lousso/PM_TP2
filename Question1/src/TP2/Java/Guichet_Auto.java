@@ -1,4 +1,4 @@
-package com.arnaud.zinflou.test.spring;
+package TP2.Java;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
