@@ -38,10 +38,14 @@
             String solde = (String) request.getAttribute("solde");
             out.println( solde );%>
 		</p>
+		
 		<form action="Home" method="post">
-		    <input type="submit" name="button1" value="Déposer" />
-		    <input type="submit" name="button2" value="Retirer" />
-		    <input type="text" name="lname" value = "0">
+			<select name=option >
+				<option value="deposer" selected="selected">Deposer</option>
+				<option value="retirer">Retirer</option>
+			</select>
+			<input type="text" name="textBoxSum" value = "0">
+			<input type="submit" name="btnSubmit" value="Submit" />
 		</form>
         
     </body>

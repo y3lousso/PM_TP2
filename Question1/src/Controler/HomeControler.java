@@ -7,16 +7,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+
 import Model.Compte;
 import Model.Implementation_du_Compte;
 
 public class HomeControler extends HttpServlet {
 	
-	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	private Compte compte;
+	
+	public HomeControler() 
+	{
+		//ApplicationContext ctx = new Clas("../AuGuichet.xml");
+		//compte = (Compte)ctx.getBean("compt007");
 		
-		// Access to bdd ..
-		Compte compte = new Implementation_du_Compte("a","a","a","a");
-			
+		compte = new Implementation_du_Compte("a","a","a","a");
+	}
+	
+	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+					
 		request.setAttribute( "numero", compte.getNumero() );
 		request.setAttribute( "nom", compte.getNom() );
 		request.setAttribute( "telephone", compte.getNumeroTel() );
@@ -26,11 +36,20 @@ public class HomeControler extends HttpServlet {
 		this.getServletContext().getRequestDispatcher( "/Index.jsp" ).forward( request, response );
 	}
     
-public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+				
+		float value = Float.parseFloat(request.getParameter("textBoxSum"));
 		
-		// Access to bdd ..
-		Compte compte = new Implementation_du_Compte("b","a","a","a");
-			
+		if( request.getParameter("option").equals("deposer") ) 
+		{
+			compte.deposer(value);
+		}else if( request.getParameter("option").equals("retirer") )
+		{
+			compte.retirer(value);
+		}else {
+			System.out.println(request.getParameter("option"));
+		}
+	
 		request.setAttribute( "numero", compte.getNumero() );
 		request.setAttribute( "nom", compte.getNom() );
 		request.setAttribute( "telephone", compte.getNumeroTel() );
