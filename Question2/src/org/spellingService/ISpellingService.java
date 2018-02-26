@@ -1,10 +1,11 @@
-package spellingService;
+package org.spellingService;
 
-import dictionaryService.IDictionaryService;
+import org.dictionaryService.IDictionaryService;
 
 public interface ISpellingService {
 
     void setDictionaryService(IDictionaryService service);
+    IDictionaryService getDictionaryService();
 
     void checkWord(String word);
 
