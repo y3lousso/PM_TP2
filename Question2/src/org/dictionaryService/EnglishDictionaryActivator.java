@@ -1,13 +1,10 @@
-package dictionaryService;
+package org.dictionaryService;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class EnglishDictionaryActivator implements BundleActivator, IDictionaryActivator {
 
@@ -17,14 +14,13 @@ public class EnglishDictionaryActivator implements BundleActivator, IDictionaryA
     @Override
     public void start(BundleContext bundleContext) {
         try {
-            ApplicationContext context = new ClassPathXmlApplicationContext("dictionary.xml");
-            service = new DictionaryService("/en.txt");
+            service = new DictionaryService("/en.txt", "English");
             registration = bundleContext.registerService(
                     DictionaryService.class.getName(),
                     service,
                     null);
             System.out.println("English dictionary service active !");
-        } catch (IOException | URISyntaxException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
