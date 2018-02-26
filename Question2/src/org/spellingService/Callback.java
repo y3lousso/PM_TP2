@@ -1,4 +1,4 @@
-package spellingService;
+package org.spellingService;
 
 import java.util.List;
 
