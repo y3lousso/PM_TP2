@@ -10,26 +10,6 @@
 tmp/**
 tmp/**/*
 
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @thomasfaget
- Sign out
-2,436
-61,838 28,033 github/gitignore
- Code  Pull requests 168  Projects 0  Insights
-gitignore/Global/JetBrains.gitignore
-2170a04  15 days ago
-@DKroot DKroot .idea/**/datasources.xml is now safe to store
-@thunsaker @samskiter @LazarusX @arcresu @victorhaggqvist @DKroot @tsteinholz @ssinss @rocketraman @RobertoNovelo @Cantido @petermorlion @Omarasifshaikh @nfcopier @koppor @jturmel @Nihlus @yatskevich @GingerGeek @Fuhrmann @ergl @drothmaler @Nainterceptor @cemmersb @shiftkey @baijifeilong
-
-50 lines (37 sloc)  982 Bytes
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
-# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
 .idea/**/workspace.xml
@@ -77,17 +57,5 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
-About
 
 

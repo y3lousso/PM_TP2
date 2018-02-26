@@ -10,15 +10,17 @@
     <version>1.0</version>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.osgi/org.osgi.core -->
         <dependency>
-            <groupId>org.apache.felix</groupId>
+            <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
-            <version>1.4.0</version>
+            <version>6.0.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.0.3.RELEASE</version>
+            <version>5.0.4.RELEASE</version>
         </dependency>
     </dependencies>
 
@@ -27,7 +29,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
+                <version>3.7.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -40,9 +42,9 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>FrenchDictionaryProvider</Bundle-SymbolicName>
-                        <Export-Package>TP2.Java</Export-Package>
-                        <Bundle-Activator>dictionaryService.FrenchDictionaryActivator</Bundle-Activator>
+                        <Bundle-SymbolicName>EnglishDictionaryActivator</Bundle-SymbolicName>
+                        <Export-Package>dictionaryService</Export-Package>
+                        <Bundle-Activator>org.dictionaryService.EnglishDictionaryActivator</Bundle-Activator>
                     </instructions>
                 </configuration>
             </plugin>
