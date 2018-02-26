@@ -1,4 +1,4 @@
-package dictionaryService;
+package org.dictionaryService;
 
 public interface IDictionaryActivator {
 
