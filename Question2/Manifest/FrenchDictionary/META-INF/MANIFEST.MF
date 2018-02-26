@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: French dictionary
+Bundle-SymbolicName: fr-dict
+Bundle-Description: A bundle that registers a French dictionary service
+Bundle-Vendor: Apache Felix
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dictionaryService.FrenchDictionaryActivator
+Import-Package: org.osgi.framework, dictionaryService
