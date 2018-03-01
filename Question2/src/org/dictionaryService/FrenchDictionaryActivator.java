@@ -7,15 +7,17 @@ import org.osgi.framework.ServiceRegistration;
 
 import java.io.IOException;
 
+/** A bundle to launch a service for English Dictionary
+ */
 public class FrenchDictionaryActivator implements BundleActivator {
 
     private ServiceRegistration registration;
-    private IDictionaryService service;
 
     @Override
     public void start(BundleContext bundleContext) {
         try {
-            service = new DictionaryService("/fr.txt", "French");
+            // create the service with the dictionary file
+            IDictionaryService service = new DictionaryService("/fr.txt", "French");
             registration = bundleContext.registerService(
                     DictionaryService.class.getName(),
                     service,

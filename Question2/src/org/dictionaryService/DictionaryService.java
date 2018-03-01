@@ -14,7 +14,7 @@ public class DictionaryService implements IDictionaryService {
     private List<String> words;
     private String language;
 
-    public DictionaryService(String path, String language) throws IOException {
+    DictionaryService(String path, String language) throws IOException {
         this.words = loadFromFile(path);
         this.language = language;
     }
@@ -30,6 +30,7 @@ public class DictionaryService implements IDictionaryService {
             return new ArrayList<>();
         }
         else {
+            // Filter all the words with the given prefix
             return words.stream().filter(w -> w.startsWith(word)).collect(Collectors.toList());
         }
     }
