@@ -1,5 +1,7 @@
 package org.dictionaryService;
 
+import org.dictionaryService.able.IDictionaryService;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;

@@ -1,4 +1,4 @@
-package org.dictionaryService;
+package org.dictionaryService.able;
 
 import java.util.List;
 
