@@ -35,19 +35,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Bundle-SymbolicName>EnglishDictionaryActivator</Bundle-SymbolicName>
-                        <Export-Package>dictionaryService</Export-Package>
-                        <Bundle-Activator>org.dictionaryService.EnglishDictionaryActivator</Bundle-Activator>
-                    </instructions>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 </project>
