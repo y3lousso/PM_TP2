@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: SpellingService
-Bundle-SymbolicName: SpellingService
+Bundle-Name: Dictionary Activity
+Bundle-SymbolicName: DictionaryActivity
 Bundle-Description: A bundle that contains a dictionary activity
 Bundle-Version: 1.0.0
-Bundle-Activator: org.spellingService.SpellingActivator
+Bundle-Activator: org.dictionaryActivity.DictionaryActivityActivator
 Export-Package: org.dictionaryService.able
 Import-Package: javax.swing,javax.swing.border,javax.swing.event,org.osgi.framework
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
