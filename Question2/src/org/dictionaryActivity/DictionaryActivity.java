@@ -4,6 +4,8 @@ import org.dictionaryService.able.IDictionaryService;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 import java.awt.*;
@@ -24,7 +26,12 @@ class DictionaryActivity extends JFrame {
     private JLabel label1 = new JLabel("Enter a word to check");
     private JLabel label2 = new JLabel("Word Suggestions :");
     private JLabel label3 = new JLabel("Type a word :");
+
     private JLabel statusLabel = new JLabel("No dictionary selected !");
+    private JLabel checkLabel = new JLabel("");
+
+    private Color badColor = new Color(167,36,7);
+    private Color goodColor = new Color(23,227,40);
 
     private IDictionaryService service;
     private DictionaryServiceFinder serviceFinder;
@@ -49,7 +56,7 @@ class DictionaryActivity extends JFrame {
         statusPanel.add(statusLabel);
 
         // layout dimensions
-        layout.columnWidths = new int[]{150,200};
+        layout.columnWidths = new int[]{170,200};
         layout.rowHeights = new int[]{50,200,200,50};
 
         // Add all the component in the frame
@@ -74,10 +81,13 @@ class DictionaryActivity extends JFrame {
         constraints.gridy = 2;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.NONE;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.NORTH;
         constraints.insets = new Insets(4,4,4,4);
-        panel.add(check, constraints);
+        JPanel checkPanel = new JPanel(new BorderLayout());
+        checkPanel.add(check, BorderLayout.LINE_START);
+        checkPanel.add(checkLabel, BorderLayout.EAST);
+        panel.add(checkPanel, constraints);
 
         constraints.gridx = 1;
         constraints.gridy = 0;
@@ -105,8 +115,23 @@ class DictionaryActivity extends JFrame {
         constraints.insets = new Insets(0,0,0,0);
         panel.add(statusPanel, constraints);
 
-        // Listener
+        // Listeners
         check.addActionListener(e -> checkWord(textField.getText()));
+        textField.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                run();
+            }
+            public void removeUpdate(DocumentEvent e) {
+                run();
+            }
+            public void insertUpdate(DocumentEvent e) {
+                run();
+            }
+
+            void run() {
+                checkLabel.setText("");
+            }
+        });
 
         // menu
         createMenuBar();
@@ -128,10 +153,15 @@ class DictionaryActivity extends JFrame {
             serviceUnavailable();
         }
         else if (!word.equals("") && service.check(word)) {
-            check.setText("Good");
+            checkLabel.setText("Correct");
+            checkLabel.setForeground(goodColor);
+            checkLabel.setHorizontalAlignment(JLabel.RIGHT);
+
         }
         else if (!word.equals("")){
-            check.setText("Bad");
+            checkLabel.setText("Not correct");
+            checkLabel.setForeground(badColor);
+            checkLabel.setHorizontalAlignment(JLabel.RIGHT);
             printSuggestionWords(service.GetWordsBeginWith(word));
         }
     }
