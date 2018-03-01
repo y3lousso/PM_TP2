@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: English dictionary
+Bundle-SymbolicName: EnglishDictionaryService
+Bundle-Description: A bundle that registers a English dictionary service
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dictionaryService.EnglishDictionaryActivator
+Import-Package: org.osgi.framework,org.dictionaryService.able
