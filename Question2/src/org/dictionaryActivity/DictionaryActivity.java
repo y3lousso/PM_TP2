@@ -1,4 +1,4 @@
-package org.spellingService;
+package org.dictionaryActivity;
 
 import org.dictionaryService.able.IDictionaryService;
 
@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-public class DictionaryActivity extends JFrame {
+class DictionaryActivity extends JFrame {
 
     private JButton check = new JButton("Check");
     private JTextField textField = new JTextField();
@@ -23,12 +23,13 @@ public class DictionaryActivity extends JFrame {
 
     private JLabel label1 = new JLabel("Enter a word to check");
     private JLabel label2 = new JLabel("Word Suggestions :");
+    private JLabel label3 = new JLabel("Type a word :");
     private JLabel statusLabel = new JLabel("No dictionary selected !");
 
     private IDictionaryService service;
     private DictionaryServiceFinder serviceFinder;
 
-    public DictionaryActivity(DictionaryServiceFinder serviceFinder) {
+    DictionaryActivity(DictionaryServiceFinder serviceFinder) {
         super("Spelling");
 
         this.serviceFinder = serviceFinder;
@@ -47,20 +48,25 @@ public class DictionaryActivity extends JFrame {
         statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
         statusPanel.add(statusLabel);
 
+        // layout dimensions
         layout.columnWidths = new int[]{150,200};
         layout.rowHeights = new int[]{50,200,200,50};
 
+        // Add all the component in the frame
         constraints.weightx = 0;
         constraints.weighty = 0;
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.BOTH;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.SOUTH;
         constraints.insets = new Insets(4,4,4,4);
-        textField.setMaximumSize(textField.getPreferredSize());
-        panel.add(textField, constraints);
+        JPanel textFieldPanel = new JPanel(new BorderLayout());
+        label3.setHorizontalAlignment(JLabel.CENTER);
+        textFieldPanel.add(label3, BorderLayout.NORTH);
+        textFieldPanel.add(textField, BorderLayout.SOUTH);
+        panel.add(textFieldPanel, constraints);
 
         constraints.weightx = 1;
         constraints.weighty = 1;
@@ -72,7 +78,6 @@ public class DictionaryActivity extends JFrame {
         constraints.anchor = GridBagConstraints.NORTH;
         constraints.insets = new Insets(4,4,4,4);
         panel.add(check, constraints);
-
 
         constraints.gridx = 1;
         constraints.gridy = 0;
@@ -133,27 +138,29 @@ public class DictionaryActivity extends JFrame {
 
     private void printSuggestionWords(List<String> words) {
         if (words == null || words.isEmpty()) {
-            textArea.removeAll();
             textArea.setText("Any suggestion");
         }
         else {
-            textArea.removeAll();
+            // Print all the words in the textArea
             StringBuilder content = new StringBuilder("<html>");
-            words.forEach(s -> content.append("-").append(s).append("<br/>"));
+            words.forEach(s -> content.append("- ").append(s).append("<br/>"));
             content.append("</html>");
             textArea.setText(String.valueOf(content));
+            textArea.setVerticalAlignment(JLabel.TOP);
         }
     }
 
     private void serviceUnavailable() {
+        // Open a option pane with error message
         JOptionPane.showMessageDialog(this,
                 "No language selected ! Please select one language",
-                "Dictionary services unavailable",
+                "Error !",
                 JOptionPane.ERROR_MESSAGE);
 
     }
 
     private void createMenuBar() {
+        // Create the menu bar, update each click on "options"
         menuBar = new JMenuBar();
         optionMenu = new JMenu("Options");
 
@@ -163,6 +170,7 @@ public class DictionaryActivity extends JFrame {
             public void menuSelected(MenuEvent e) {
                 createDictionaryMenu();
             }
+
             @Override public void menuDeselected(MenuEvent e) {}
             @Override public void menuCanceled(MenuEvent e) {}
         });
@@ -172,11 +180,13 @@ public class DictionaryActivity extends JFrame {
     }
 
     private void createDictionaryMenu() {
+        // Create the submenu "language" with all the dictionary found
         optionMenu.removeAll();
         JMenu submenu = new JMenu("Language");
 
         IDictionaryService[] services = serviceFinder.findAllDictionaryServices();
         if (services == null || services.length == 0) {
+            // No dictionary found :
             JMenuItem menuItem = new JMenuItem("No dictionary found");
             menuItem.setEnabled(false);
             submenu.add(menuItem);
@@ -201,9 +211,14 @@ public class DictionaryActivity extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            // Set the service when the language is selected
             service = dictionaryService;
             statusLabel.removeAll();
             statusLabel.setText("Language : " + service.getLanguage());
+
+            // clear text
+            textArea.setText("");
+            textField.setText("");
         }
     }
 
