@@ -1,12 +1,13 @@
 package org.dictionaryService;
 
+import org.dictionaryService.able.IDictionaryService;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
 import java.io.IOException;
 
-public class FrenchDictionaryActivator implements BundleActivator, IDictionaryActivator {
+public class FrenchDictionaryActivator implements BundleActivator {
 
     private ServiceRegistration registration;
     private IDictionaryService service;
@@ -19,7 +20,7 @@ public class FrenchDictionaryActivator implements BundleActivator, IDictionaryAc
                     DictionaryService.class.getName(),
                     service,
                     null);
-            System.out.println("French dictionary service active !");
+            System.out.println("French dictionary service started !");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,8 +32,4 @@ public class FrenchDictionaryActivator implements BundleActivator, IDictionaryAc
         System.out.println("French dictionary service stopped !");
     }
 
-    @Override
-    public IDictionaryService getDictionaryService() {
-        return service;
-    }
 }
