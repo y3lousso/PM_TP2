@@ -37,7 +37,7 @@ class DictionaryActivity extends JFrame {
     private DictionaryServiceFinder serviceFinder;
 
     DictionaryActivity(DictionaryServiceFinder serviceFinder) {
-        super("Spelling");
+        super("Dictionary Activity");
 
         this.serviceFinder = serviceFinder;
 
