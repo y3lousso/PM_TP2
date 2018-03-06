@@ -235,7 +235,7 @@ class DictionaryActivity extends JFrame {
 
         private IDictionaryService dictionaryService;
 
-        public DictionaryMenuItemListener(IDictionaryService service) {
+        DictionaryMenuItemListener(IDictionaryService service) {
             dictionaryService = service;
         }
 
