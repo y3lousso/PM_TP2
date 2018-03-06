@@ -19,7 +19,7 @@ public class EnglishDictionaryActivator implements BundleActivator {
             // create the service with the dictionary file
             IDictionaryService service = new DictionaryService("/en.txt", "English");
             registration = bundleContext.registerService(
-                    DictionaryService.class.getName(),
+                    IDictionaryService.class.getName(),
                     service,
                     null);
             System.out.println("English dictionary service started !");
