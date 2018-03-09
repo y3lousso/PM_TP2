@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <comptes>
-	<compte numero="007">
+	<compte numero="000">
 		<nom>Jean</nom>
 		<telephone>(418)545-5010</telephone>
 		<service>au guichet</service>
@@ -12,7 +12,7 @@
 		<service>au guichet</service>
 		<solde>1000</solde>
 	</compte>
-	<compte numero="000">
+	<compte numero="002">
 		<nom>Xiao Zhi</nom>
 		<telephone>(418)545-5011</telephone>
 		<service>au guichet</service>
