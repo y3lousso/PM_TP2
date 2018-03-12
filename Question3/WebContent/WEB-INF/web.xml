@@ -14,9 +14,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>bank</servlet-name>
-		<url-pattern>/bank.jsp</url-pattern>
-		<url-pattern>/bank.html</url-pattern>
-		<url-pattern>*.html</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 </web-app>
