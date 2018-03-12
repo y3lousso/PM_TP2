@@ -10,11 +10,12 @@ public class CompteImp implements Compte {
     private final String service;
     private double solde;
 
-    public CompteImp(String numero, String nom, String telephone, String service) {
+    public CompteImp(String numero, String nom, String telephone, String service, double solde) {
         this.numero = numero;
         this.Nom = nom;
         this.Telephone = telephone;
         this.service = service;
+        this.solde = solde;
     }
 
     @Override

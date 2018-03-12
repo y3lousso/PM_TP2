@@ -2,8 +2,8 @@ package com.uqac.controller;
 
 public class AccountAction {
 
-    private String action;
-    private float value;
+    public String action = "deposer";
+    public float value = 0f;
 
     public float getValue() {
         return value;

@@ -3,6 +3,7 @@ package com.uqac.controller;
 import com.uqac.Compte;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,40 +15,48 @@ public class BankController {
     private String id = "001";
     private Dal dal;
 
-    @RequestMapping(value = "/bank", method = RequestMethod.GET)
+    @GetMapping(value = "/bank")
     public ModelAndView displayAccount() {
 
-        if (dal == null)
+        if (dal == null) 
+        {
             dal = new Dal();
+        }
 
-        Compte account = new CompteImp(id, dal.getItem("nom", id), dal.getItem("telephone", id), dal.getItem("service", id));
-        account.deposer(Double.parseDouble(dal.getItem("solde", id)));
+        Compte account = new CompteImp(
+        		id, 
+        		dal.getItem("nom", id), 
+        		dal.getItem("telephone", id), 
+        		dal.getItem("service", id), 
+        		Double.parseDouble(dal.getItem("solde", id)));
 
-        ModelAndView modelAndView = new ModelAndView("bank", "account", account);
-        modelAndView.addObject("accountAction", new AccountAction());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("bank");
+        modelAndView.addObject("account", account);
 
         return modelAndView;
     }
+    
+    @ModelAttribute("accountAction")
+    public AccountAction formBackingObject() {
+        return new AccountAction();
+    }
 
-    @RequestMapping(value = "/bank", method = RequestMethod.POST)
-    public String accountAction(@ModelAttribute AccountAction accountAction) {
+    @PostMapping(value="/bankPost")
+    public String accountAction(@ModelAttribute("accountAction") AccountAction accountAction, BindingResult result, ModelMap model) {
 
-        if (dal == null)
-            dal = new Dal();
-
-        try {
-            dal.deposer(id, accountAction.getValue());
-        } catch (TransformerException e) {
-            e.printStackTrace();
+    	if (result.hasErrors()) 
+    	{
+            return "error";
         }
-//        else if (action.equals("retirer")) {
-//            try {
-//                dal.retirer(id, value);
-//            } catch (TransformerException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        
+        if (dal == null) 
+        {
+            dal = new Dal();
+        }     	        
+        
+        //dal.deposer(id, accountAction.getValue());       
 
-        return "bank";
+        return "redirect:bank.html";
     }
 }
