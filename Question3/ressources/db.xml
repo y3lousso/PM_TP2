@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comptes>
+	<compte numero="000">
+		<nom>Jean</nom>
+		<telephone>(418)545-5010</telephone>
+		<service>au guichet</service>
+		<solde>10</solde>
+	</compte>
+	<compte numero="001">
+		<nom>Anne</nom>
+		<telephone>(418)595-5010</telephone>
+		<service>au guichet</service>
+		<solde>1000</solde>
+	</compte>
+	<compte numero="002">
+		<nom>Xiao Zhi</nom>
+		<telephone>(418)545-5011</telephone>
+		<service>au guichet</service>
+		<solde>0</solde>
+	</compte>
+</comptes>

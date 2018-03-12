@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Spring MVC Tutorial Series by Crunchify.com</title>
+    <title>Money money</title>
     <style type="text/css">
         body {
             background-image: url('https://crunchify.com/bg.png');
@@ -11,11 +11,10 @@
 <br>
 <div style="text-align:center">
     <h2>
-        Hey You..!! This is your 1st Spring MCV Tutorial..<br> <br>
+        Welcome to your bank !<br> <br>
     </h2>
     <h3>
-        <a href="welcome.html">Click here to See Welcome Message... </a>(to
-        check Spring MVC Controller... @RequestMapping("/welcome"))
+        Click <a href="bank.html">here</a> to connect to your bank via Internet.
     </h3>
 </div>
 </body>
