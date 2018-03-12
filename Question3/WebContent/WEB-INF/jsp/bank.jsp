@@ -31,7 +31,7 @@
         ${account.getSolde()}
     </p>
 
-    <form:form  method="POST" action="bankPost" modelAttribute="accountAction" >
+    <form:form  method="POST" action="/accountAction" modelAttribute="accountAction" >
         <table>
                 <tr>
                     <td><form:label path="action">Action</form:label></td>
