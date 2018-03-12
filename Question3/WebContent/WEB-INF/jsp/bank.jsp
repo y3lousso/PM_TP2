@@ -34,12 +34,17 @@
     <form:form  method="POST" action="/accountAction" modelAttribute="accountAction" >
         <table>
                 <tr>
-                    <td><form:label path="action">Action</form:label></td>
-                    <td><form:input path="action"/></td>
-                </tr>
-                <tr>
                     <td><form:label path="value">Value</form:label></td>
                     <td><form:input path="value"/></td>
+                </tr>
+                <tr>
+                    <td>Action</td>
+                    <td>
+                        <form:select path="action">
+                            <option value="retirer">Retirer</option>
+                            <option value="deposer">Déposer</option>
+                        </form:select>
+                    </td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="Submit"/></td>
