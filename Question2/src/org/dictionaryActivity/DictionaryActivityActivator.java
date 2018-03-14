@@ -1,10 +1,7 @@
 package org.dictionaryActivity;
 
 import org.dictionaryService.able.IDictionaryService;
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.InvalidSyntaxException;
-import org.osgi.framework.ServiceReference;
+import org.osgi.framework.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,13 +37,14 @@ public class DictionaryActivityActivator implements BundleActivator, DictionaryS
         }
         if (references == null || references.size() == 0) {
             return new IDictionaryService[0];
-        }
-        else {
+        } else {
             // Extract all the DictionaryService found from the references
             IDictionaryService[] services = new IDictionaryService[references.size()];
             for (int i = 0; i < references.size(); i++) {
                 ServiceReference<IDictionaryService> reference = references.get(i);
-                services[i] = context.getService(reference);
+                IDictionaryService service = context.getService(reference);
+                services[i] = service;
+
             }
             return services;
         }

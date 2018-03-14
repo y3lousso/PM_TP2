@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-class DictionaryActivity extends JFrame {
+class DictionaryActivity extends JFrame  {
 
     private JButton check = new JButton("Check");
     private JTextField textField = new JTextField();
@@ -210,6 +210,8 @@ class DictionaryActivity extends JFrame {
     }
 
     private void createDictionaryMenu() {
+
+        boolean isCurrentServiceAvailable = false;
         // Create the submenu "language" with all the dictionary found
         optionMenu.removeAll();
         JMenu submenu = new JMenu("Language");
@@ -220,13 +222,20 @@ class DictionaryActivity extends JFrame {
             JMenuItem menuItem = new JMenuItem("No dictionary found");
             menuItem.setEnabled(false);
             submenu.add(menuItem);
-        }
-        else {
-            for (IDictionaryService service : services) {
-                JMenuItem menuItem = new JMenuItem(service.getLanguage());
-                menuItem.addActionListener(new DictionaryMenuItemListener(service));
+        } else {
+            for (IDictionaryService dictionaryService : services) {
+                JMenuItem menuItem = new JMenuItem(dictionaryService.getLanguage());
+                menuItem.addActionListener(new DictionaryMenuItemListener(dictionaryService));
                 submenu.add(menuItem);
+
+                if (service == dictionaryService) {
+                    isCurrentServiceAvailable = true;
+                }
             }
+        }
+        if (!isCurrentServiceAvailable) {
+            statusLabel.setText("No dictionary selected !");
+            service = null;
         }
         optionMenu.add(submenu);
     }
